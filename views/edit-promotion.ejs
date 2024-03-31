@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Promotion</title>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <h1>Edit Promotion</h1>
+    <form action="/edit-promotion/<%= promotion.PromotionId %>" method="post">
+        <label for="discountRate">Discount Rate:</label>
+        <input type="number" id="discountRate" name="discountRate" value="<%= promotion.DiscountRate %>" required><br>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" value="<%= promotion.StartDate.toISOString().split('T')[0] %>" required><br>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" value="<%= promotion.EndDate.toISOString().split('T')[0] %>" required><br>
+
+        <label for="productId">Product ID:</label>
+        <input type="number" id="productId" name="productId" value="<%= promotion.ProductId %>" required><br>
+
+        <input type="submit" value="Update Promotion">
+    </form>
+</body>
+</html>
+

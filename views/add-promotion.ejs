@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Promotion</title>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <h1>Add New Promotion</h1>
+    <form action="/add-promotion" method="post">
+        <label for="discountRate">Discount Rate:</label>
+        <input type="number" id="discountRate" name="discountRate" required><br>
+        
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required><br>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required><br>
+        
+        <label for="productId">Product ID:</label>
+        <input type="number" id="productId" name="productId" required><br>
+        
+        <input type="submit" value="Add Promotion">
+    </form>
+</body>
+</html>
+

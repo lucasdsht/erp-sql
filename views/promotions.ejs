@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promotions List</title>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <h1>Promotions</h1>
+    <% if(Array.isArray(promotions)) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Promotion ID</th>
+                    <th>Discount Rate</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Product ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% promotions.forEach(function(promotion) { %>
+                    <tr>
+                        <td><%= promotion.PromotionId %></td>
+                        <td><%= promotion.DiscountRate %></td>
+                        <td><%= promotion.StartDate.toISOString().split('T')[0] %></td>
+                        <td><%= promotion.EndDate.toISOString().split('T')[0] %></td>
+                        <td><%= promotion.ProductId %></td>
+                        <td>
+                            <a href="/edit-promotion/<%= promotion.PromotionId %>">Edit</a> |
+                            <a href="/delete-promotion/<%= promotion.PromotionId %>" onclick="return confirm('Are you sure?');">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No promotions found.</p>
+    <% } %>
+</body>
+</html>
+
